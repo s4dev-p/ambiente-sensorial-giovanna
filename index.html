@@ -7,46 +7,234 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        'display': ['Inter', 'system-ui', 'sans-serif'],
+                        'body': ['Roboto', 'system-ui', 'sans-serif'],
+                    },
                     colors: {
-                        teal: {
-                            50: '#f0fdfa',
-                            100: '#ccfbf1',
-                            200: '#99f6e4',
-                            300: '#5eead4',
-                            400: '#2dd4bf',
-                            500: '#14b8a6',
-                            600: '#0d9488',
-                            700: '#0f766e',
-                            800: '#115e59',
-                            900: '#134e4a',
-                            950: '#042f2e',
+                        // Material 3 Expressive Color Palette
+                        primary: {
+                            50: '#e8f5f7',
+                            100: '#c8e6ea',
+                            200: '#a4d6dc',
+                            300: '#7ec5cd',
+                            400: '#63b8c2',
+                            500: '#48abb7',
+                            600: '#419da8',
+                            700: '#378c95',
+                            800: '#2e7c83',
+                            900: '#1e5e63',
+                            950: '#0f3538',
                         },
-                    }
+                        secondary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                        surface: {
+                            50: '#fafbfb',
+                            100: '#f4f6f7',
+                            200: '#e5e9eb',
+                            300: '#d1d8db',
+                            400: '#9ca7ab',
+                            500: '#6b7781',
+                            600: '#515a63',
+                            700: '#3d454d',
+                            800: '#2a3137',
+                            900: '#1a1f23',
+                            950: '#0f1419',
+                        },
+                        accent: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                            950: '#431407',
+                        },
+                    },
+                    fontSize: {
+                        // Material 3 Typography Scale
+                        'display-large': ['3.5rem', { lineHeight: '4rem', letterSpacing: '-0.025em', fontWeight: '400' }],
+                        'display-medium': ['2.875rem', { lineHeight: '3.375rem', letterSpacing: '0', fontWeight: '400' }],
+                        'display-small': ['2.25rem', { lineHeight: '2.75rem', letterSpacing: '0', fontWeight: '400' }],
+                        'headline-large': ['2rem', { lineHeight: '2.5rem', letterSpacing: '0', fontWeight: '400' }],
+                        'headline-medium': ['1.75rem', { lineHeight: '2.25rem', letterSpacing: '0', fontWeight: '400' }],
+                        'headline-small': ['1.5rem', { lineHeight: '2rem', letterSpacing: '0', fontWeight: '400' }],
+                        'title-large': ['1.375rem', { lineHeight: '1.75rem', letterSpacing: '0', fontWeight: '400' }],
+                        'title-medium': ['1rem', { lineHeight: '1.5rem', letterSpacing: '0.009375em', fontWeight: '500' }],
+                        'title-small': ['0.875rem', { lineHeight: '1.25rem', letterSpacing: '0.00625em', fontWeight: '500' }],
+                        'body-large': ['1rem', { lineHeight: '1.5rem', letterSpacing: '0.009375em', fontWeight: '400' }],
+                        'body-medium': ['0.875rem', { lineHeight: '1.25rem', letterSpacing: '0.0178571em', fontWeight: '400' }],
+                        'body-small': ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.025em', fontWeight: '400' }],
+                        'label-large': ['0.875rem', { lineHeight: '1.25rem', letterSpacing: '0.00625em', fontWeight: '500' }],
+                        'label-medium': ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.03333em', fontWeight: '500' }],
+                        'label-small': ['0.6875rem', { lineHeight: '1rem', letterSpacing: '0.036364em', fontWeight: '500' }],
+                    },
+                    boxShadow: {
+                        // Material 3 Elevation
+                        'elevation-1': '0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)',
+                        'elevation-2': '0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15)',
+                        'elevation-3': '0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.3)',
+                        'elevation-4': '0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.3)',
+                        'elevation-5': '0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px rgba(0, 0, 0, 0.3)',
+                    },
+                    borderRadius: {
+                        'xl-plus': '1.5rem',
+                        '2xl-plus': '2rem',
+                        '3xl': '3rem',
+                    },
+                    animation: {
+                        'bounce-gentle': 'bounce-gentle 2s infinite',
+                        'scale-gentle': 'scale-gentle 0.2s ease-in-out',
+                        'slide-up': 'slide-up 0.3s ease-out',
+                        'fade-in': 'fade-in 0.3s ease-out',
+                    },
+                    keyframes: {
+                        'bounce-gentle': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-4px)' },
+                        },
+                        'scale-gentle': {
+                            '0%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.05)' },
+                            '100%': { transform: 'scale(1)' },
+                        },
+                        'slide-up': {
+                            '0%': { transform: 'translateY(10px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        'fade-in': {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                    },
                 }
             }
         }
     </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            /* Base Styles */
+            * {
+                -webkit-tap-highlight-color: transparent;
+            }
+            
+            body {
+                font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+                font-feature-settings: 'rlig' 1, 'calt' 1;
+            }
+            
+            .font-display {
+                font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+                font-feature-settings: 'ss01' 1, 'ss02' 1, 'cv01' 1, 'cv03' 1;
+            }
+            
+            ::selection {
+                background-color: #48abb7;
+                color: white;
+            }
+            
+            html {
+                scroll-behavior: smooth;
+                scroll-padding-top: 5rem;
+            }
+        }
+        
+        @layer components {
+            /* Material 3 Buttons */
+            .btn-filled {
+                @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-3xl font-medium text-label-large transition-all duration-200 focus:outline-none focus:ring-4 active:scale-95;
+            }
+            
+            .btn-filled-primary {
+                @apply bg-primary-500 text-white shadow-elevation-2 hover:bg-primary-600 hover:shadow-elevation-3 focus:ring-primary-500/30;
+            }
+            
+            .btn-filled-tonal {
+                @apply bg-primary-100 text-primary-800 shadow-elevation-1 hover:bg-primary-200 hover:shadow-elevation-2 focus:ring-primary-500/20;
+            }
+            
+            .btn-outlined {
+                @apply border border-primary-300 text-primary-600 hover:bg-primary-50 focus:ring-primary-500/20;
+            }
+            
+            /* Material 3 Cards */
+            .card-filled {
+                @apply bg-surface-50 border border-surface-200 rounded-3xl shadow-elevation-1 hover:shadow-elevation-2 transition-all duration-300;
+            }
+            
+            .card-elevated {
+                @apply bg-white rounded-3xl shadow-elevation-3 hover:shadow-elevation-4 transition-all duration-300;
+            }
+        }
+        
+        @layer utilities {
+            /* Enhanced Interactive States */
+            .interactive-surface {
+                @apply transition-all duration-200 active:scale-[0.98];
+            }
+            
+            /* Enhanced Focus States */
+            .focus-visible:focus-visible {
+                @apply outline-none ring-4 ring-primary-500/30;
+            }
+        }
+    </style>
+    
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-        ::selection {
-            background-color: #14b8a6;
-            color: white;
-        }
+        /* Custom CSS that cannot use @apply */
         .vision-trigger {
-            text-decoration-style: dotted;
+            position: relative;
+            cursor: pointer;
+            color: #48abb7;
+            font-weight: 500;
+            text-decoration: underline;
+            text-decoration-style: wavy;
             text-decoration-thickness: 2px;
-            text-underline-offset: 3px;
+            text-underline-offset: 4px;
+            text-decoration-color: #48abb7;
         }
-        .m3-tonal-button {
-            @apply text-teal-800 bg-teal-100 hover:bg-teal-200/80;
+        
+        .vision-trigger:hover {
+            color: #378c95;
+            text-decoration-thickness: 3px;
+        }
+        
+        /* Loading States */
+        .loading-shimmer {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        /* Material Symbols */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
     </style>
     <script type="importmap">
@@ -58,36 +246,66 @@
     }
     </script>
 </head>
-<body class="bg-gray-50/50 text-gray-800 antialiased">
+<body class="bg-surface-50 text-surface-800 antialiased font-body">
 
-    <!-- Header -->
-    <header id="main-header" class="sticky top-0 bg-white/80 backdrop-blur-md z-20 transition-shadow duration-300">
+    <!-- Material 3 Header -->
+    <header id="main-header" class="sticky top-0 bg-white/95 backdrop-blur-xl z-50 transition-all duration-300 border-b border-surface-200/50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <nav class="flex justify-between items-center py-3">
-                <a href="#home" class="flex items-center space-x-3 group">
-                    <img src="logo.svg" alt="Logo Ambiente Sensorial" class="h-10 w-10 group-hover:scale-110 transition-transform duration-300 ease-in-out">
-                    <span class="text-xl font-medium text-gray-800">Ambiente Sensorial</span>
+            <nav class="flex justify-between items-center py-4">
+                <a href="#home" class="flex items-center space-x-4 group interactive-surface focus-visible">
+                    <div class="relative">
+                        <img src="logo.svg" alt="Logo Ambiente Sensorial" class="h-12 w-12 group-hover:scale-110 transition-transform duration-300 ease-out">
+                        <div class="absolute inset-0 bg-primary-500/20 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -z-10"></div>
+                    </div>
+                    <span class="text-headline-small font-display font-medium text-surface-900 group-hover:text-primary-600 transition-colors duration-200">Ambiente Sensorial</span>
                 </a>
-                <div class="hidden md:flex items-center space-x-2">
-                    <a href="#o-que-e" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-full transition-colors duration-200 font-medium">O Que É</a>
-                    <a href="#arquitetura" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-full transition-colors duration-200 font-medium">Arquitetura</a>
-                    <a href="#o-projeto" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-full transition-colors duration-200 font-medium">O Projeto</a>
-                    <a href="#contato" class="bg-teal-600 text-white font-medium py-2 px-5 rounded-full shadow-sm hover:bg-teal-700 hover:shadow-md transition-all duration-300 transform hover:scale-105">Contato</a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="#o-que-e" class="nav-link text-surface-700 hover:bg-surface-100 hover:text-primary-600 px-4 py-2.5 rounded-3xl transition-all duration-200 font-medium text-label-large focus-visible interactive-surface">
+                        O Que É
+                    </a>
+                    <a href="#arquitetura" class="nav-link text-surface-700 hover:bg-surface-100 hover:text-primary-600 px-4 py-2.5 rounded-3xl transition-all duration-200 font-medium text-label-large focus-visible interactive-surface">
+                        Arquitetura
+                    </a>
+                    <a href="#o-projeto" class="nav-link text-surface-700 hover:bg-surface-100 hover:text-primary-600 px-4 py-2.5 rounded-3xl transition-all duration-200 font-medium text-label-large focus-visible interactive-surface">
+                        O Projeto
+                    </a>
+                    <a href="#contato" class="btn-filled btn-filled-primary ml-2 focus-visible">
+                        <span class="material-symbols-outlined text-lg">mail</span>
+                        Contato
+                    </a>
                 </div>
-                <button id="mobile-menu-button" class="md:hidden p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                    </svg>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-3 rounded-2xl hover:bg-surface-100 focus-visible transition-all duration-200 interactive-surface" aria-expanded="false" aria-label="Abrir menu">
+                    <span class="material-symbols-outlined text-2xl text-surface-700">
+                        menu
+                    </span>
                 </button>
             </nav>
         </div>
-         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#o-que-e" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-teal-50 hover:text-teal-700 rounded-lg">O Que É</a>
-                <a href="#arquitetura" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-teal-50 hover:text-teal-700 rounded-lg">Arquitetura</a>
-                <a href="#o-projeto" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-teal-50 hover:text-teal-700 rounded-lg">O Projeto</a>
-                <a href="#contato" class="block py-3 px-4 text-base font-medium text-gray-700 hover:bg-teal-50 hover:text-teal-700 rounded-lg">Contato</a>
+        <!-- Enhanced Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-surface-200/60 bg-white/98 backdrop-blur-lg">
+            <div class="px-4 py-6 space-y-2">
+                <a href="#o-que-e" class="flex items-center gap-3 py-4 px-5 text-title-medium font-medium text-surface-700 hover:bg-primary-50 hover:text-primary-700 rounded-2xl transition-all duration-200 interactive-surface focus-visible">
+                    <span class="material-symbols-outlined text-xl">info</span>
+                    O Que É
+                </a>
+                <a href="#arquitetura" class="flex items-center gap-3 py-4 px-5 text-title-medium font-medium text-surface-700 hover:bg-primary-50 hover:text-primary-700 rounded-2xl transition-all duration-200 interactive-surface focus-visible">
+                    <span class="material-symbols-outlined text-xl">architecture</span>
+                    Arquitetura
+                </a>
+                <a href="#o-projeto" class="flex items-center gap-3 py-4 px-5 text-title-medium font-medium text-surface-700 hover:bg-primary-50 hover:text-primary-700 rounded-2xl transition-all duration-200 interactive-surface focus-visible">
+                    <span class="material-symbols-outlined text-xl">folder_open</span>
+                    O Projeto
+                </a>
+                <div class="pt-4 border-t border-surface-200/60">
+                    <a href="#contato" class="btn-filled btn-filled-primary w-full justify-center focus-visible">
+                        <span class="material-symbols-outlined text-lg">mail</span>
+                        Contato
+                    </a>
+                </div>
             </div>
         </div>
     </header>
@@ -95,174 +313,396 @@
     <!-- Main Content -->
     <main>
 
-        <!-- Hero Section -->
-        <section id="home" class="relative overflow-hidden bg-white py-24 sm:py-32 md:py-40">
-            <div class="absolute inset-0 bg-grid-teal-100/30 [mask-image:linear-gradient(to_bottom,white_5%,transparent_80%)]"></div>
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 leading-tight tracking-tight">
-                    Ambientes que <span class="text-teal-600">Acolhem</span> e <span class="text-teal-600">Inspiram</span>
-                </h1>
-                <p class="mt-6 text-lg md:text-xl max-w-3xl mx-auto text-gray-600">
-                    Transformando a jornada educacional dos pequenos com espaços sensoriais inteligentes e inclusivos.
-                </p>
-                <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#o-que-e" class="inline-flex items-center justify-center gap-x-2 bg-teal-600 text-white font-medium py-3 px-8 rounded-full shadow-lg hover:bg-teal-700 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-teal-500/50 w-full sm:w-auto">
-                        Descubra Como
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" clip-rule="evenodd" /></svg>
-                    </a>
-                    <a href="#o-projeto" class="inline-flex items-center justify-center gap-x-2 bg-teal-100 text-teal-800 font-medium py-3 px-8 rounded-full hover:bg-teal-200/80 transition-colors duration-300 w-full sm:w-auto">
-                        Sobre o Projeto
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- What is a Sensory Environment Section -->
-        <section id="o-que-e" class="py-20 md:py-32 bg-gray-50/50">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-4xl mx-auto text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">O que é um <span class="text-teal-600">Ambiente Sensorial</span>?</h2>
-                    <p class="mt-4 text-lg text-gray-600">Um espaço cuidadosamente projetado para estimular os sentidos de forma controlada e intencional.</p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="text-lg text-gray-700 leading-relaxed space-y-4">
-                        <p>O objetivo é criar uma experiência completa que envolve <span class="vision-trigger text-teal-600 font-medium cursor-pointer hover:underline">visão</span>, audição, tato, olfato e até mesmo nosso senso de equilíbrio (sistema vestibular).</p>
-                        <p>Muito mais do que apenas a estética, um ambiente sensorial busca gerar bem-estar, foco e interação. É uma ferramenta poderosa que utiliza estímulos para influenciar positivamente nossa percepção, emoções e comportamento.</p>
+        <!-- Material 3 Hero Section -->
+        <section id="home" class="relative overflow-hidden bg-gradient-to-br from-white via-primary-50/30 to-secondary-50/20 py-20 sm:py-28 lg:py-36">
+            <!-- Enhanced Background Pattern -->
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary-100/40 via-transparent to-transparent"></div>
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiM0OGFiYjciIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyIi8+PC9nPjwvZz48L3N2Zz4=')] opacity-30"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div class="text-center max-w-5xl mx-auto">
+                    <!-- Hero Badge -->
+                    <div class="inline-flex items-center gap-2 bg-primary-100/80 backdrop-blur-sm text-primary-800 px-4 py-2 rounded-3xl border border-primary-200/60 mb-8 animate-fade-in">
+                        <span class="material-symbols-outlined text-lg">school</span>
+                        <span class="text-label-large font-medium">Arquitetura Sensorial Educacional</span>
                     </div>
-                    <div class="relative">
-                        <div class="absolute -inset-4 bg-gradient-to-br from-teal-100 to-green-100 rounded-3xl opacity-50 blur-xl"></div>
-                        <img src="sensory-concept.png" alt="Conceito de ambiente sensorial" class="relative rounded-3xl shadow-xl w-full h-auto">
+                    
+                    <!-- Main Headline -->
+                    <h1 class="text-display-medium sm:text-display-large lg:text-[4rem] font-display font-light text-surface-900 leading-tight mb-6 animate-slide-up">
+                        Ambientes que <span class="text-primary-600 font-medium">Acolhem</span><br class="hidden sm:block"> e <span class="text-primary-600 font-medium">Inspiram</span>
+                    </h1>
+                    
+                    <!-- Subtitle -->
+                    <p class="text-title-large text-surface-600 max-w-3xl mx-auto mb-10 leading-relaxed animate-slide-up">
+                        Transformando a jornada educacional dos pequenos com espaços sensoriais inteligentes e inclusivos que promovem bem-estar e aprendizado.
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up">
+                        <a href="#o-que-e" class="btn-filled btn-filled-primary group focus-visible">
+                            <span class="material-symbols-outlined text-lg group-hover:animate-bounce-gentle">explore</span>
+                            Descubra Como
+                            <span class="material-symbols-outlined text-lg ml-1 group-hover:translate-x-1 transition-transform duration-200">arrow_forward</span>
+                        </a>
+                        <a href="#o-projeto" class="btn-filled btn-filled-tonal focus-visible">
+                            <span class="material-symbols-outlined text-lg">info</span>
+                            Sobre o Projeto
+                        </a>
                     </div>
-                </div>
-                <div class="mt-20">
-                     <h3 class="text-2xl font-semibold text-gray-800 text-center mb-12">Esses espaços são fundamentais em diversas áreas:</h3>
-                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                        <!-- Card 1 -->
-                        <div class="bg-white p-8 rounded-3xl text-center ring-1 ring-gray-200/80 hover:ring-teal-300 hover:shadow-2xl hover:shadow-teal-100/80 hover:-translate-y-2 transition-all duration-300">
-                            <div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-teal-100 text-teal-600 mx-auto mb-5 transform-gpu transition-transform group-hover:scale-110">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
-                            </div>
-                            <h4 class="text-xl font-medium text-gray-800 mb-2">Educação Infantil</h4>
-                            <p class="text-gray-600">Para promover a exploração e o aprendizado.</p>
+                    
+                    <!-- Feature Pills -->
+                    <div class="flex flex-wrap items-center justify-center gap-3 mt-12 animate-fade-in">
+                        <div class="inline-flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-3xl border border-surface-200/60 text-surface-700">
+                            <span class="material-symbols-outlined text-lg text-primary-600">visibility</span>
+                            <span class="text-body-medium font-medium">Estímulos Visuais</span>
                         </div>
-                         <!-- Card 2 -->
-                        <div class="bg-white p-8 rounded-3xl text-center ring-1 ring-gray-200/80 hover:ring-teal-300 hover:shadow-2xl hover:shadow-teal-100/80 hover:-translate-y-2 transition-all duration-300">
-                            <div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-teal-100 text-teal-600 mx-auto mb-5 transform-gpu transition-transform group-hover:scale-110">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
-                            </div>
-                            <h4 class="text-xl font-medium text-gray-800 mb-2">Terapias</h4>
-                            <p class="text-gray-600">Auxiliando no tratamento de transtornos do neurodesenvolvimento.</p>
+                        <div class="inline-flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-3xl border border-surface-200/60 text-surface-700">
+                            <span class="material-symbols-outlined text-lg text-primary-600">hearing</span>
+                            <span class="text-body-medium font-medium">Ambientes Sonoros</span>
                         </div>
-                         <!-- Card 3 -->
-                        <div class="bg-white p-8 rounded-3xl text-center ring-1 ring-gray-200/80 sm:col-span-2 lg:col-span-1 hover:ring-teal-300 hover:shadow-2xl hover:shadow-teal-100/80 hover:-translate-y-2 transition-all duration-300">
-                             <div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-teal-100 text-teal-600 mx-auto mb-5 transform-gpu transition-transform group-hover:scale-110">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
-                            </div>
-                            <h4 class="text-xl font-medium text-gray-800 mb-2">Cuidados de Saúde</h4>
-                            <p class="text-gray-600">Proporcionando conforto a idosos ou pacientes em reabilitação.</p>
+                        <div class="inline-flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-3xl border border-surface-200/60 text-surface-700">
+                            <span class="material-symbols-outlined text-lg text-primary-600">touch_app</span>
+                            <span class="text-body-medium font-medium">Experiências Táteis</span>
                         </div>
-                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sensory Architecture Section -->
-        <section id="arquitetura" class="py-20 md:py-32 bg-white">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="order-2 md:order-1 text-lg text-gray-700 leading-relaxed space-y-6">
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">Arquitetura <span class="text-teal-600">Sensorial</span></h2>
-                        <p class="text-xl text-gray-800 font-medium">Criando Espaços que Despertam Emoções</p>
-                        
-                        <p>Você já parou para pensar em como os espaços nos afetam? A maneira como percebemos e nos relacionamos com o ambiente é profundamente influenciada por nossos sentidos.</p>
-                        <p>Enquanto a arquitetura tradicional foca no funcional e no estético, nossa abordagem vai além: projetamos para estimular os sentidos e criar experiências memoráveis.</p>
-                        <p class="font-medium text-teal-800 bg-teal-50 text-lg border-l-4 border-teal-400 p-4 rounded-r-lg">É a arte de construir não apenas com materiais, mas com sensações.</p>
-                    </div>
-                    <div class="order-1 md:order-2 relative">
-                         <div class="absolute -inset-4 bg-gradient-to-br from-teal-100 to-green-100 rounded-3xl opacity-50 blur-xl"></div>
-                        <img src="arquitetura-sensorial.png" alt="Ilustração de arquitetura sensorial com formas orgânicas e elementos da natureza" class="relative rounded-3xl shadow-xl w-full h-auto">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Project Section -->
-        <section id="o-projeto" class="py-20 md:py-32 bg-gray-50/50">
+        <!-- Enhanced Sensory Environment Section -->
+        <section id="o-que-e" class="py-20 lg:py-32 bg-surface-50/60">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-4xl mx-auto text-center">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-16 tracking-tight">
-                        A Importância do Espaço Sensorial na <span class="text-teal-600">Adaptação Escolar</span>
+                <!-- Section Header -->
+                <div class="max-w-4xl mx-auto text-center mb-20">
+                    <div class="inline-flex items-center gap-2 bg-primary-100/60 text-primary-800 px-4 py-2 rounded-3xl border border-primary-200/60 mb-6">
+                        <span class="material-symbols-outlined text-lg">psychology</span>
+                        <span class="text-label-large font-medium">Conceito Fundamental</span>
+                    </div>
+                    <h2 class="text-display-small font-display font-light text-surface-900 mb-6">
+                        O que é um <span class="text-primary-600 font-medium">Ambiente Sensorial</span>?
                     </h2>
+                    <p class="text-title-large text-surface-600 leading-relaxed">
+                        Um espaço cuidadosamente projetado para estimular os sentidos de forma controlada, intencional e terapêutica.
+                    </p>
                 </div>
-                <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-white p-8 rounded-3xl ring-1 ring-gray-200/80">
-                        <h3 class="text-xl font-medium text-gray-800 mb-3">O Desafio da Adaptação</h3>
-                        <p class="text-gray-600 leading-relaxed">O ingresso na escola é um marco, mas para muitas crianças, a adaptação a um ambiente novo e cheio de estímulos pode gerar insegurança.</p>
+                
+                <!-- Main Content Grid -->
+                <div class="grid lg:grid-cols-2 gap-16 items-center mb-20">
+                    <!-- Content -->
+                    <div class="space-y-6">
+                        <div class="card-filled p-8">
+                            <p class="text-body-large text-surface-700 leading-relaxed">
+                                O objetivo é criar uma experiência completa que envolve 
+                                <span class="vision-trigger font-medium">visão</span>, audição, tato, 
+                                olfato e até mesmo nosso senso de equilíbrio (sistema vestibular).
+                            </p>
+                        </div>
+                        
+                        <div class="card-elevated p-8">
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="bg-primary-100 p-3 rounded-2xl">
+                                    <span class="material-symbols-outlined text-2xl text-primary-600">auto_awesome</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-title-large font-medium text-surface-900 mb-2">Muito Mais que Estética</h3>
+                                    <p class="text-body-large text-surface-700 leading-relaxed">
+                                        Um ambiente sensorial busca gerar bem-estar, foco e interação. É uma ferramenta 
+                                        poderosa que utiliza estímulos para influenciar positivamente nossa percepção, 
+                                        emoções e comportamento.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Visual -->
+                    <div class="relative">
+                        <div class="absolute -inset-8 bg-gradient-to-br from-primary-100/60 to-secondary-100/40 rounded-3xl opacity-60 blur-2xl"></div>
+                        <div class="card-elevated overflow-hidden">
+                            <img src="sensory-concept.png" alt="Conceito de ambiente sensorial" class="w-full h-auto">
+                        </div>
+                    </div>
+                </div>
+                <!-- Applications Section -->
+                <div class="text-center mb-16">
+                    <h3 class="text-headline-medium font-display font-light text-surface-900 mb-4">
+                        Esses espaços são fundamentais em diversas áreas
+                    </h3>
+                    <p class="text-body-large text-surface-600">Descobra como os ambientes sensoriais transformam diferentes contextos</p>
+                </div>
+                
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <!-- Education Card -->
+                    <div class="card-elevated p-8 text-center group hover:-translate-y-2 transition-all duration-300 interactive-surface">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-primary-100 rounded-3xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <span class="material-symbols-outlined text-3xl text-primary-600">school</span>
+                        </div>
+                        <h4 class="text-title-large font-medium text-surface-900 mb-3">Educação Infantil</h4>
+                        <p class="text-body-large text-surface-600 leading-relaxed">Para promover a exploração, curiosidade e aprendizado através dos sentidos.</p>
+                    </div>
+                    
+                    <!-- Therapy Card -->
+                    <div class="card-elevated p-8 text-center group hover:-translate-y-2 transition-all duration-300 interactive-surface">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-secondary-100 rounded-3xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <span class="material-symbols-outlined text-3xl text-secondary-600">healing</span>
+                        </div>
+                        <h4 class="text-title-large font-medium text-surface-900 mb-3">Terapias</h4>
+                        <p class="text-body-large text-surface-600 leading-relaxed">Auxiliando no tratamento de transtornos do neurodesenvolvimento e integração sensorial.</p>
+                    </div>
+                    
+                    <!-- Healthcare Card -->
+                    <div class="card-elevated p-8 text-center group hover:-translate-y-2 transition-all duration-300 interactive-surface sm:col-span-2 lg:col-span-1">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-accent-100 rounded-3xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <span class="material-symbols-outlined text-3xl text-accent-600">favorite</span>
+                        </div>
+                        <h4 class="text-title-large font-medium text-surface-900 mb-3">Cuidados de Saúde</h4>
+                        <p class="text-body-large text-surface-600 leading-relaxed">Proporcionando conforto e bem-estar a idosos e pacientes em reabilitação.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Sensory Architecture Section -->
+        <section id="arquitetura" class="py-20 lg:py-32 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <!-- Content -->
+                    <div class="order-2 lg:order-1 space-y-8">
+                        <!-- Section Badge -->
+                        <div class="inline-flex items-center gap-2 bg-primary-100/60 text-primary-800 px-4 py-2 rounded-3xl border border-primary-200/60">
+                            <span class="material-symbols-outlined text-lg">architecture</span>
+                            <span class="text-label-large font-medium">Nossa Abordagem</span>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <h2 class="text-display-small font-display font-light text-surface-900">
+                                Arquitetura <span class="text-primary-600 font-medium">Sensorial</span>
+                            </h2>
+                            <p class="text-title-large font-medium text-surface-700">
+                                Criando Espaços que Despertam Emoções
+                            </p>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <div class="card-filled p-6">
+                                <p class="text-body-large text-surface-700 leading-relaxed">
+                                    Você já parou para pensar em como os espaços nos afetam? A maneira como percebemos 
+                                    e nos relacionamos com o ambiente é profundamente influenciada por nossos sentidos.
+                                </p>
+                            </div>
+                            
+                            <div class="card-filled p-6">
+                                <p class="text-body-large text-surface-700 leading-relaxed">
+                                    Enquanto a arquitetura tradicional foca no funcional e no estético, nossa abordagem 
+                                    vai além: projetamos para estimular os sentidos e criar experiências memoráveis.
+                                </p>
+                            </div>
+                            
+                            <div class="card-elevated p-6 border-l-4 border-primary-500">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <span class="material-symbols-outlined text-primary-600">format_quote</span>
+                                    <span class="text-title-medium font-medium text-primary-700">Nossa Filosofia</span>
+                                </div>
+                                <p class="text-body-large font-medium text-primary-800 leading-relaxed">
+                                    É a arte de construir não apenas com materiais, mas com sensações.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Visual -->
+                    <div class="order-1 lg:order-2 relative">
+                        <div class="absolute -inset-8 bg-gradient-to-br from-primary-100/60 to-accent-100/40 rounded-3xl opacity-60 blur-2xl"></div>
+                        <div class="card-elevated overflow-hidden">
+                            <img src="arquitetura-sensorial.png" alt="Ilustração de arquitetura sensorial com formas orgânicas e elementos da natureza" class="w-full h-auto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Project Section -->
+        <section id="o-projeto" class="py-20 lg:py-32 bg-surface-50/60">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="max-w-4xl mx-auto text-center mb-20">
+                    <div class="inline-flex items-center gap-2 bg-primary-100/60 text-primary-800 px-4 py-2 rounded-3xl border border-primary-200/60 mb-6">
+                        <span class="material-symbols-outlined text-lg">school</span>
+                        <span class="text-label-large font-medium">Impacto Educacional</span>
+                    </div>
+                    <h2 class="text-display-small font-display font-light text-surface-900 mb-6">
+                        A Importância do Espaço Sensorial na <span class="text-primary-600 font-medium">Adaptação Escolar</span>
+                    </h2>
+                    <p class="text-title-large text-surface-600 leading-relaxed">
+                        Compreenda como ambientes bem planejados transformam a experiência educacional
+                    </p>
+                </div>
+                
+                <!-- Content Cards -->
+                <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Challenge Card -->
+                    <div class="card-elevated p-8 group hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="bg-accent-100 p-3 rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                                <span class="material-symbols-outlined text-2xl text-accent-600">psychology</span>
+                            </div>
+                            <h3 class="text-title-large font-medium text-surface-900">O Desafio da Adaptação</h3>
+                        </div>
+                        <p class="text-body-large text-surface-700 leading-relaxed">
+                            O ingresso na escola é um marco, mas para muitas crianças, a adaptação a um ambiente 
+                            novo e cheio de estímulos pode gerar insegurança e ansiedade.
+                        </p>
                     </div>
 
-                    <div class="bg-teal-50 p-8 rounded-3xl ring-1 ring-teal-200 shadow-lg shadow-teal-500/10">
-                        <h3 class="text-xl font-medium text-teal-900 mb-3">O Poder do Ambiente</h3>
-                        <p class="text-teal-800 leading-relaxed">Um espaço sensorialmente planejado acolhe, acalma e engaja. Ao considerarmos estímulos auditivos, <span class="vision-trigger text-teal-600 font-medium cursor-pointer hover:underline">visuais</span>, táteis e olfativos, criamos um lugar que promove segurança, facilitando a concentração e fortalecendo vínculos.</p>
+                    <!-- Solution Card (Featured) -->
+                    <div class="card-elevated p-8 bg-gradient-to-br from-primary-50 to-primary-100/50 border-2 border-primary-200 group hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="bg-primary-100 p-3 rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                                <span class="material-symbols-outlined text-2xl text-primary-600">auto_awesome</span>
+                            </div>
+                            <h3 class="text-title-large font-medium text-primary-900">O Poder do Ambiente</h3>
+                        </div>
+                        <p class="text-body-large text-primary-800 leading-relaxed">
+                            Um espaço sensorialmente planejado acolhe, acalma e engaja. Ao considerarmos estímulos 
+                            auditivos, <span class="vision-trigger font-medium">visuais</span>, táteis e olfativos, 
+                            criamos um lugar que promove segurança, facilitando a concentração e fortalecendo vínculos.
+                        </p>
                     </div>
 
-                    <div class="bg-white p-8 rounded-3xl ring-1 ring-gray-200/80">
-                        <h3 class="text-xl font-medium text-gray-800 mb-3">Nossa Proposta Inclusiva</h3>
-                        <p class="text-gray-600 leading-relaxed">Desenvolvemos soluções para uma adaptação tranquila, beneficiando todas as crianças, especialmente as com maior sensibilidade.</p>
+                    <!-- Proposal Card -->
+                    <div class="card-elevated p-8 group hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="bg-secondary-100 p-3 rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                                <span class="material-symbols-outlined text-2xl text-secondary-600">diversity_3</span>
+                            </div>
+                            <h3 class="text-title-large font-medium text-surface-900">Nossa Proposta Inclusiva</h3>
+                        </div>
+                        <p class="text-body-large text-surface-700 leading-relaxed">
+                            Desenvolvemos soluções para uma adaptação tranquila e acolhedora, beneficiando 
+                            todas as crianças, especialmente aquelas com maior sensibilidade sensorial.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Vision Drawer -->
-    <div id="vision-drawer-container" class="fixed inset-0 bg-black/60 z-40 hidden" aria-hidden="true">
-        <div id="vision-drawer" class="fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl z-50 transform translate-y-full transition-transform duration-500 ease-in-out max-h-[85vh] sm:max-h-[75vh] md:max-h-[70vh] flex flex-col">
+    <!-- Enhanced Vision Drawer -->
+    <div id="vision-drawer-container" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden" aria-hidden="true">
+        <div id="vision-drawer" class="fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-elevation-5 z-50 transform translate-y-full transition-transform duration-500 ease-in-out max-h-[85vh] sm:max-h-[75vh] md:max-h-[70vh] flex flex-col border-t-2 border-primary-200">
             <!-- Handle -->
             <div class="flex-shrink-0 flex justify-center py-4 cursor-grab touch-none">
-                <div class="w-12 h-1.5 bg-gray-300 rounded-full"></div>
+                <div class="w-12 h-1.5 bg-surface-300 rounded-full"></div>
             </div>
+            
             <!-- Header -->
-            <div class="flex-shrink-0 flex items-center justify-between px-6 pb-4 border-b">
-                <h2 class="text-2xl font-bold text-gray-800 border-l-4 border-teal-500 pl-4">VISÃO</h2>
-                <button id="close-drawer-btn" class="p-2 rounded-full hover:bg-gray-100 text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 -mr-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+            <div class="flex-shrink-0 flex items-center justify-between px-6 pb-6 border-b border-surface-200">
+                <div class="flex items-center gap-4">
+                    <div class="bg-primary-100 p-3 rounded-2xl">
+                        <span class="material-symbols-outlined text-2xl text-primary-600">visibility</span>
+                    </div>
+                    <h2 class="text-headline-medium font-display font-medium text-surface-900">VISÃO</h2>
+                </div>
+                <button id="close-drawer-btn" class="p-3 rounded-2xl hover:bg-surface-100 text-surface-600 focus-visible transition-all duration-200 interactive-surface">
+                    <span class="material-symbols-outlined text-2xl">close</span>
                 </button>
             </div>
+            
             <!-- Content -->
             <div class="flex-grow p-6 overflow-y-auto">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="grid md:grid-cols-2 gap-8 items-center mb-8">
+                    <!-- Visual -->
                     <div class="relative">
-                        <div class="absolute -inset-4 bg-gradient-to-br from-teal-100 to-green-100 rounded-3xl opacity-50 blur-xl"></div>
-                        <img src="vision-concept.png" alt="Conceito abstrato da visão" class="relative rounded-2xl shadow-lg w-full h-auto">
+                        <div class="absolute -inset-6 bg-gradient-to-br from-primary-100/60 to-secondary-100/40 rounded-3xl opacity-60 blur-2xl"></div>
+                        <div class="card-elevated overflow-hidden">
+                            <img src="vision-concept.png" alt="Conceito abstrato da visão" class="w-full h-auto">
+                        </div>
                     </div>
-                    <div class="space-y-4 text-gray-700 leading-relaxed">
-                        <p>
-                            A <span class="font-medium text-gray-800">visão</span> é um processo sensorial complexo que permite ao ser humano perceber o ambiente por meio da luz refletida pelos objetos. Essa luz entra no olho pela córnea, atravessa a pupila, o cristalino e o humor vítreo, sendo então focada na retina.
-                        </p>
-                        <p>
-                            A retina contém células fotorreceptoras: os <span class="font-medium text-gray-800">cones</span>, que percebem as cores, e os <span class="font-medium text-gray-800">bastonetes</span>, que captam a luz em ambientes escuros. Essas células transformam a luz em impulsos elétricos, que são enviados ao cérebro pelo nervo óptico.
-                        </p>
+                    
+                    <!-- Content -->
+                    <div class="space-y-6">
+                        <div class="card-filled p-6">
+                            <p class="text-body-large text-surface-700 leading-relaxed">
+                                A <span class="font-medium text-primary-700">visão</span> é um processo sensorial complexo que 
+                                permite ao ser humano perceber o ambiente por meio da luz refletida pelos objetos. Essa luz 
+                                entra no olho pela córnea, atravessa a pupila, o cristalino e o humor vítreo, sendo então 
+                                focada na retina.
+                            </p>
+                        </div>
+                        
+                        <div class="card-filled p-6">
+                            <p class="text-body-large text-surface-700 leading-relaxed">
+                                A retina contém células fotorreceptoras: os <span class="font-medium text-primary-700">cones</span>, 
+                                que percebem as cores, e os <span class="font-medium text-primary-700">bastonetes</span>, que captam 
+                                a luz em ambientes escuros. Essas células transformam a luz em impulsos elétricos, que são 
+                                enviados ao cérebro pelo nervo óptico.
+                            </p>
+                        </div>
                     </div>
                 </div>
-                 <div class="bg-gray-100 p-6 rounded-2xl mt-8 ring-1 ring-gray-200/80">
-                    <p class="text-gray-700 leading-relaxed">
-                        No cérebro, especialmente no lobo occipital, a imagem é reconstruída com base em diversos elementos, como forma, cor, contraste, profundidade e movimento. Assim, a <span class="font-medium text-gray-800">visão</span> resulta da integração entre os olhos e o cérebro, que interpreta as informações recebidas para formar nossa percepção visual do mundo.
-                    </p>
+                
+                <!-- Summary Card -->
+                <div class="card-elevated p-6 bg-gradient-to-r from-primary-50 to-secondary-50 border border-primary-200">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-primary-100 p-2 rounded-xl">
+                            <span class="material-symbols-outlined text-lg text-primary-600">lightbulb</span>
+                        </div>
+                        <div>
+                            <h3 class="text-title-medium font-medium text-surface-900 mb-2">Integração Cérebro-Olho</h3>
+                            <p class="text-body-large text-surface-700 leading-relaxed">
+                                No cérebro, especialmente no lobo occipital, a imagem é reconstruída com base em diversos 
+                                elementos, como forma, cor, contraste, profundidade e movimento. Assim, a 
+                                <span class="font-medium text-primary-700">visão</span> resulta da integração entre os olhos 
+                                e o cérebro, que interpreta as informações recebidas para formar nossa percepção visual do mundo.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-white" id="contato">
-        <div class="container mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center text-gray-500">
-             <a href="#home" class="inline-block mb-4 group">
-                <img src="logo.svg" alt="Logo S4 CodeWorks" class="h-12 w-12 mx-auto group-hover:scale-110 transition-transform duration-300 ease-in-out">
-            </a>
-            <p class="text-sm font-medium">By: S4 CodeWorks</p>
-            <p class="text-sm mt-1">&copy; 2025 Ambiente Sensorial - E.M.E.F Padre João Schiavo. Todos os direitos reservados.</p>
+    <!-- Enhanced Footer -->
+    <footer class="bg-surface-900" id="contato">
+        <div class="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
+            <!-- Main Footer Content -->
+            <div class="text-center mb-12">
+                <a href="#home" class="inline-block mb-6 group focus-visible">
+                    <div class="relative">
+                        <img src="logo.svg" alt="Logo Ambiente Sensorial" class="h-16 w-16 mx-auto group-hover:scale-110 transition-transform duration-300 ease-out brightness-0 invert">
+                        <div class="absolute inset-0 bg-primary-400/20 rounded-full scale-0 group-hover:scale-150 transition-transform duration-300 ease-out -z-10"></div>
+                    </div>
+                </a>
+                
+                <h3 class="text-title-large font-display font-medium text-white mb-4">
+                    Ambiente Sensorial
+                </h3>
+                
+                <p class="text-body-large text-surface-300 max-w-2xl mx-auto leading-relaxed">
+                    Transformando espaços educacionais através da arquitetura sensorial, 
+                    criando ambientes que acolhem e inspiram o aprendizado.
+                </p>
+            </div>
+            
+            <!-- Contact CTA -->
+            <div class="text-center mb-12">
+                <a href="mailto:contato@ambientesensorial.com" class="btn-filled btn-filled-primary focus-visible">
+                    <span class="material-symbols-outlined text-lg">mail</span>
+                    Entre em Contato
+                </a>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="border-t border-surface-700 pt-8">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p class="text-body-medium text-surface-400 text-center sm:text-left">
+                        By: <span class="font-medium text-surface-300">S4 CodeWorks</span>
+                    </p>
+                    <p class="text-body-medium text-surface-400 text-center sm:text-right">
+                        &copy; 2025 Ambiente Sensorial - E.M.E.F Padre João Schiavo. Todos os direitos reservados.
+                    </p>
+                </div>
+            </div>
         </div>
     </footer>
 
